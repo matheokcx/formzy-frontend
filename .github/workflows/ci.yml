@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Passer le linter
+        run: npm run lint
+
+  format-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    needs: [lint]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérifier le formatage
+        run: npm run format:check
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [lint]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    needs: [typecheck]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Lancer le build
+        run: npm run build

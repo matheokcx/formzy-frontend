@@ -1,0 +1,15 @@
+services:
+  react-service:
+    build: .
+    restart: always
+    container_name: react-image
+    ports:
+      - 5173:5173
+    networks:
+      - net
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+networks:
+  net:

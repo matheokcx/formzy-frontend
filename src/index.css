@@ -1,0 +1,134 @@
+:root {
+    --title-color: hsl(0, 0%, 0%);
+    --text-color: hsl(0, 0%, 20%);
+
+    --background-dark: hsl(0, 0%, 90%);
+    --background: hsl(0, 0%, 95%);
+    --background-light: hsl(0, 0%, 100%);
+
+    --border: hsl(0, 0%, 0%);
+
+    --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+    --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, Consolas, monospace;
+
+    font: 18px/145% var(--sans);
+    letter-spacing: 0.18px;
+    color: var(--text-color);
+    background: var(--background-dark);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Titles | textes */
+h1,
+h2,
+h3 {
+    font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+    color: var(--title-color);
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+label {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+input,
+select {
+    height: fit-content;
+    border-radius: 14px;
+    border: 2px solid hsl(0, 0%, 20%);
+    background: transparent;
+    padding: 8px 16px;
+    color: var(--text-color);
+}
+
+button {
+    width: fit-content;
+    border: none;
+    border-radius: 10px;
+    background: hsl(0, 0%, 20%);
+    padding: 8px 16px;
+    color: hsl(0, 0%, 100%);
+    font-weight: 600;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 60%;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: hsl(0, 0%, 70%);
+}
+
+[data-theme='dark'] {
+    --title-color: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 85%);
+
+    --background-dark: hsl(0, 0%, 0%);
+    --background: hsl(0, 0%, 10%);
+    --background-light: hsl(0, 0%, 20%);
+
+    --border: hsl(0, 0%, 100%);
+}

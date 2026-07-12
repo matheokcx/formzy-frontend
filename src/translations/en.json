@@ -1,0 +1,24 @@
+{
+    "languages": {
+        "fr": "French",
+        "en": "English",
+        "change_lang_message": "Language changed successfully!"
+    },
+    "email": "Email address",
+    "password": "Password",
+    "login": "Login",
+    "signup": "Sign up",
+    "fullName": "Full name",
+    "passwordConfirmation": "Confirm password",
+    "passwordMismatch": "Passwords do not match",
+    "registerError": "Unable to create account",
+    "home": "Home",
+    "profile": "Profile",
+    "logout": "Logout",
+    "loading": "Loading",
+    "userName": "User name",
+    "light": "Light",
+    "dark": "Dark",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at"
+}
