@@ -1,0 +1,13 @@
+services:
+  frontend:
+    image: ${FRONTEND_IMAGE:-ghcr.io/matheokcx/formzy-frontend:latest}
+    restart: always
+    container_name: formzy-frontend
+    ports:
+      - '127.0.0.1:8080:80'
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '--spider', 'http://localhost:80/']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
