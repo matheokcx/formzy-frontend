@@ -4,7 +4,7 @@ services:
     restart: always
     container_name: formzy-frontend
     ports:
-      - '127.0.0.1:8081:80'
+      - '127.0.0.1:8082:80'
     healthcheck:
       test: ['CMD', 'wget', '-q', '--spider', 'http://localhost:80/']
       interval: 30s
