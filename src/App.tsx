@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router';
-import HomePage from './pages/HomePage.tsx';
 import './lib/i18n';
-import LoginPage from '@/pages/LoginPage.tsx';
-import RegisterPage from '@/pages/RegisterPage.tsx';
-import ProfilePage from '@/pages/ProfilePage/ProfilePage.tsx';
 import ProtectedRoute from '@/components/Layout/ProtectedRoute.tsx';
 import NavBar from '@/components/Layout/NavBar/NavBar.tsx';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('./pages/HomePage.tsx'));
+const LoginPage = lazy(() => import('./pages/LoginPage.tsx'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage.tsx'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage.tsx'));
 
 const App = () => {
     return (
