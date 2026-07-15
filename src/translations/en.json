@@ -20,5 +20,8 @@
     "light": "Light",
     "dark": "Dark",
     "createdAt": "Created at",
-    "updatedAt": "Updated at"
+    "updatedAt": "Updated at",
+    "forms": {
+        "your_forms": "Your forms"
+    }
 }

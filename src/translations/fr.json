@@ -20,5 +20,8 @@
     "light": "Clair",
     "dark": "Sombre",
     "createdAt": "Crée le",
-    "updatedAt": "Mis à jour le"
+    "updatedAt": "Mis à jour le",
+    "forms": {
+        "your_forms": "Vos formulaires"
+    }
 }

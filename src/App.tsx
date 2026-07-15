@@ -1,18 +1,17 @@
 import { Route, Routes } from 'react-router';
 import './lib/i18n';
 import ProtectedRoute from '@/components/Layout/ProtectedRoute.tsx';
-import NavBar from '@/components/Layout/NavBar/NavBar.tsx';
 import { lazy } from 'react';
 
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const LoginPage = lazy(() => import('./pages/LoginPage.tsx'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage.tsx'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage.tsx'));
+const FormsPage = lazy(() => import('./pages/FormsPage/FormsPage.tsx'));
 
 const App = () => {
     return (
         <>
-            <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
@@ -22,6 +21,14 @@ const App = () => {
                     element={
                         <ProtectedRoute>
                             <ProfilePage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/forms"
+                    element={
+                        <ProtectedRoute>
+                            <FormsPage />
                         </ProtectedRoute>
                     }
                 />
