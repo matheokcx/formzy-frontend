@@ -6,7 +6,7 @@
     --background: hsl(0, 0%, 95%);
     --background-light: hsl(0, 0%, 100%);
 
-    --border: hsl(0, 0%, 0%);
+    --border: hsl(0, 0%, 90%);
 
     --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
     --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -103,6 +103,7 @@ button {
     background: hsl(0, 0%, 20%);
     padding: 8px 16px;
     color: hsl(0, 0%, 100%);
+    font-size: 16px;
     font-weight: 600;
 }
 
@@ -130,10 +131,5 @@ hr {
     --background: hsl(0, 0%, 10%);
     --background-light: hsl(0, 0%, 20%);
 
-    --border: hsl(0, 0%, 100%);
-}
-
-div {
-    padding: 10px;
-    border-radius: 12px;
+    --border: hsl(0 0% 30%);
 }

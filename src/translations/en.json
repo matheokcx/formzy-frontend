@@ -22,6 +22,16 @@
     "createdAt": "Created at",
     "updatedAt": "Updated at",
     "forms": {
-        "your_forms": "Your forms"
-    }
+        "formWithCount_one": "{{count}} form",
+        "formWithCount_other": "{{count}} forms",
+        "your_forms": "My forms",
+        "status": {
+            "private": "Private",
+            "closed": "Closed",
+            "open": "Open"
+        }
+    },
+    "questions": "Questions",
+    "replies": "Replies",
+    "search": "Search"
 }

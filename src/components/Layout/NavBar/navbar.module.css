@@ -3,5 +3,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 12px;
+}
+
+.actionButtons div {
+    display: flex;
+    gap: 8px;
 }

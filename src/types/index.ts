@@ -20,15 +20,22 @@ export type FormTheme = {
     updatedAt: string;
 };
 
+export type FormField = {
+    label: string;
+    type: string;
+    required: boolean;
+};
+
 export type Form = {
     id: number;
     name: string;
     description: string;
-    fields: never;
+    fields: Record<string, FormField>;
     isPrivate: boolean;
     isClosed: boolean;
     user: User;
     formTheme: FormTheme;
+    replies?: FormReply[];
     createdAt: string;
     updatedAt: string;
 };

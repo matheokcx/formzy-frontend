@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import styles from './navbar.module.css';
 import { useAuth } from '@/hooks/useAuth.ts';
 import { useTranslation } from 'react-i18next';
@@ -21,21 +21,21 @@ const NavBar = () => {
 
     return (
         <nav className={styles.navbar}>
-            <div>
-                <Link to="/">{t('home')}</Link>
+            <div className={styles.links}>
+                <h2>Formzy</h2>
             </div>
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div className={styles.actionButtons}>
                 {!isAuthenticated ? (
-                    <div style={{ display: 'flex', gap: '8px' }}>
+                    <>
                         <button onClick={() => navigate('/login')}>{t('login')}</button>
                         <button onClick={() => navigate('/signup')}>{t('signup')}</button>
-                    </div>
+                    </>
                 ) : (
-                    <div style={{ display: 'flex', gap: '8px' }}>
+                    <>
                         <button onClick={() => navigate('/profile')}>{t('profile')}</button>
                         <button onClick={handleLogout}>{t('logout')}</button>
-                    </div>
+                    </>
                 )}
             </div>
         </nav>

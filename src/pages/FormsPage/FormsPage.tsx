@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import FormList from '@/components/UI/Form/FormList.tsx';
+import FormList from '@/components/UI/Form/FormList/FormList.tsx';
 
 const FormsPage = () => {
     const { t } = useTranslation();
 
     return (
         <main>
-            <h2>{t('forms.your_forms')}</h2>
+            <h1>{t('forms.your_forms')}</h1>
             <FormList />
         </main>
     );

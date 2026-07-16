@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router';
 import './lib/i18n';
 import ProtectedRoute from '@/components/Layout/ProtectedRoute.tsx';
 import { lazy } from 'react';
+import NavBar from '@/components/Layout/NavBar/NavBar.tsx';
 
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const LoginPage = lazy(() => import('./pages/LoginPage.tsx'));
@@ -12,6 +13,7 @@ const FormsPage = lazy(() => import('./pages/FormsPage/FormsPage.tsx'));
 const App = () => {
     return (
         <>
+            <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
