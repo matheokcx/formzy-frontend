@@ -7,7 +7,7 @@ const HomePage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user){
+        if (user) {
             navigate('/forms');
         }
     }, [user]);
