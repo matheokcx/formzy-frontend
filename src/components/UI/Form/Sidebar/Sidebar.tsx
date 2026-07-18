@@ -22,7 +22,7 @@ const Sidebar = ({ statusFilter, handleFilterChange }: SidebarProps) => {
 
     return (
         <aside className={styles.sidebar}>
-            <button onClick={() => navigate('/forms/create')}>
+            <button onClick={() => navigate('/forms/creation')}>
                 <PlusIcon size={24} />
                 {t('forms.new_form')}
             </button>

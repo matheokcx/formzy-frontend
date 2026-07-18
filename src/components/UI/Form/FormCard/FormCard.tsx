@@ -2,7 +2,7 @@ import type { Form } from '@/types';
 import styles from './form-card.module.css';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DotsThreeVerticalIcon, ListChecksIcon, UsersThreeIcon } from '@phosphor-icons/react';
+import { ListChecksIcon, UsersThreeIcon } from '@phosphor-icons/react';
 
 type FormCardProps = {
     form: Form;
@@ -42,7 +42,7 @@ const FormCard = ({ form }: FormCardProps) => {
                 >
                     {handleFormStatus()}
                 </span>
-                <DotsThreeVerticalIcon size={22} />
+                {/*<DotsThreeVerticalIcon size={22} />*/}
             </div>
             <h2>{form.name}</h2>
             <div className={styles.footer}>

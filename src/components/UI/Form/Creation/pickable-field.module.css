@@ -1,0 +1,13 @@
+.field {
+    background-color: var(--background-light);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding-inline: 12px;
+}
+
+.field:hover {
+    cursor: pointer;
+}

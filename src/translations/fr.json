@@ -30,7 +30,19 @@
             "closed": "Fermé",
             "open": "Ouvert"
         },
-        "new_form": "Nouveau formulaire"
+        "new_form": "Nouveau formulaire",
+        "fields": {
+            "short_text": "Texte court",
+            "long_text": "Texte long",
+            "multiple_choice": "Choix multiple",
+            "checkbox": "Case à cocher",
+            "list": "Liste déroulante",
+            "number": "Nombre",
+            "email": "Mail",
+            "date": "Date",
+            "upload": "Téléversement"
+        },
+        "add_field": "Ajouter un champ"
     },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",
@@ -38,5 +50,7 @@
     "replyWithCount_other": "{{count}} réponses",
     "search": "Rechercher",
     "filters": "Filtres",
-    "all": "Tous"
+    "all": "Tous",
+    "glimpse": "Aperçu",
+    "save": "Sauvegarder"
 }

@@ -30,7 +30,19 @@
             "closed": "Closed",
             "open": "Open"
         },
-        "new_form": "New form"
+        "new_form": "New form",
+        "fields": {
+            "short_text": "Short text",
+            "long_text": "Long text",
+            "multiple_choice": "Multiple choice",
+            "checkbox": "Checkbox",
+            "list": "List",
+            "number": "Number",
+            "email": "Email",
+            "date": "Date",
+            "upload": "File upload"
+        },
+        "add_field": "Add a field"
     },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",
@@ -38,5 +50,7 @@
     "replyWithCount_other": "{{count}} replies",
     "search": "Search",
     "filters": "Filters",
-    "all": "All"
+    "all": "All",
+    "glimpse": "Glimpse",
+    "save": "Save"
 }
