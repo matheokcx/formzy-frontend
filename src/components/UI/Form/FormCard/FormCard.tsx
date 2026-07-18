@@ -27,7 +27,7 @@ const FormCard = ({ form }: FormCardProps) => {
         }
 
         if (form.isClosed) {
-            return '1A1A1A';
+            return '#1A1A1A';
         }
 
         return '#28cd19';
