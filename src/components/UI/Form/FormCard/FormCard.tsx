@@ -48,15 +48,11 @@ const FormCard = ({ form }: FormCardProps) => {
             <div className={styles.footer}>
                 <div>
                     <ListChecksIcon size={24} />
-                    <p>
-                        {Object.keys(form.fields).length} {t('questions')}
-                    </p>
+                    <p>{t('questionWithCount', { count: Object.keys(form.fields).length })}</p>
                 </div>
                 <div>
                     <UsersThreeIcon size={24} />
-                    <p>
-                        {form?.replies?.length ?? 0} {t('replies')}
-                    </p>
+                    <p>{t('replyWithCount', { count: form?.replies?.length ?? 0 })}</p>
                 </div>
             </div>
         </div>

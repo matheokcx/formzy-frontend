@@ -1,0 +1,29 @@
+.sidebar {
+    width: 25%;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 20px;
+}
+
+.sidebar button {
+    width: 100%;
+}
+
+.formStatusButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formStatusButtons button {
+    justify-content: space-between;
+    color: var(--title-color);
+}
+
+.formStatusButtons button > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

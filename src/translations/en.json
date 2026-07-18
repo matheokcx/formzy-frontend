@@ -29,9 +29,14 @@
             "private": "Private",
             "closed": "Closed",
             "open": "Open"
-        }
+        },
+        "new_form": "New form"
     },
-    "questions": "Questions",
-    "replies": "Replies",
-    "search": "Search"
+    "questionWithCount_one": "{{count}} question",
+    "questionWithCount_other": "{{count}} questions",
+    "replyWithCount_one": "{{count}} reply",
+    "replyWithCount_other": "{{count}} replies",
+    "search": "Search",
+    "filters": "Filters",
+    "all": "All"
 }

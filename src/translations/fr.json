@@ -29,9 +29,14 @@
             "private": "Privé",
             "closed": "Fermé",
             "open": "Ouvert"
-        }
+        },
+        "new_form": "Nouveau formulaire"
     },
-    "questions": "Questions",
-    "replies": "Réponses",
-    "search": "Rechercher"
+    "questionWithCount_one": "{{count}} question",
+    "questionWithCount_other": "{{count}} questions",
+    "replyWithCount_one": "{{count}} réponse",
+    "replyWithCount_other": "{{count}} réponses",
+    "search": "Rechercher",
+    "filters": "Filtres",
+    "all": "Tous"
 }

@@ -47,3 +47,5 @@ export type FormReply = {
     createdAt: string;
     updatedAt: string;
 };
+
+export type FormStatus = 'all' | 'open' | 'closed';

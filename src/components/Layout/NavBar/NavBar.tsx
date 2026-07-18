@@ -8,7 +8,7 @@ const NavBar = () => {
     const { pathname } = useLocation();
     const { isAuthenticated, logout } = useAuth();
     const { t } = useTranslation();
-    const isAuthPage = ['/', '/login', '/signin'].includes(pathname);
+    const isAuthPage = ['/', '/login', '/signup'].includes(pathname);
 
     const handleLogout = () => {
         logout();

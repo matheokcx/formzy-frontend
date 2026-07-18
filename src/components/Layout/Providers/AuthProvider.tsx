@@ -2,12 +2,15 @@ import { type ReactNode, useCallback, useEffect, useMemo, useState } from 'react
 import { authContext } from '@/contexts/authContext';
 import { AuthService } from '@/services/authService';
 import type { User } from '@/types';
+import { useNavigate } from 'react-router';
 
 type AuthProviderProps = {
     children: ReactNode;
 };
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
+    const navigate = useNavigate();
+
     const [token, setToken] = useState<string | null>(() => localStorage.getItem('token'));
     const [user, setUser] = useState<User | null>(null);
 
@@ -28,7 +31,10 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         let cancelled = false;
         AuthService.getProfile()
             .then((response) => {
-                if (!cancelled) setUser(response.data);
+                if (!cancelled) {
+                    setUser(response.data);
+                    navigate("/forms");
+                }
             })
             .catch(() => {
                 if (!cancelled) logout();

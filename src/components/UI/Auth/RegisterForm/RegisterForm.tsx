@@ -41,7 +41,7 @@ const RegisterForm = () => {
                 required
             />
 
-            <button type="submit">{t('register')}</button>
+            <button type="submit">{t('signup')}</button>
         </form>
     );
 };

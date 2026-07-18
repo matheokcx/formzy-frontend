@@ -5,7 +5,7 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     background-color: var(--background-light);
-    box-shadow: 0 4px 10px #333333;
+    box-shadow: 0 4px 10px hsla(0, 0%, 20%, 10%);
 }
 
 .header {
