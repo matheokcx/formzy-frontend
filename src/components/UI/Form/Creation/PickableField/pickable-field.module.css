@@ -9,5 +9,9 @@
 }
 
 .field:hover {
-    cursor: pointer;
+    cursor: grab;
+}
+
+.field:active {
+    cursor: grabbing;
 }

@@ -42,7 +42,8 @@
             "date": "Date",
             "upload": "File upload"
         },
-        "add_field": "Add a field"
+        "add_field": "Add a field",
+        "drop_field_here": "Drag and drop a field here"
     },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",

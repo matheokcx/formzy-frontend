@@ -42,7 +42,8 @@
             "date": "Date",
             "upload": "Téléversement"
         },
-        "add_field": "Ajouter un champ"
+        "add_field": "Ajouter un champ",
+        "drop_field_here": "Glissez-déposez un champ ici"
     },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",

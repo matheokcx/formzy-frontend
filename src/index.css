@@ -87,10 +87,11 @@ a {
 }
 
 input,
-select {
+select,
+textarea {
     height: fit-content;
     border-radius: 14px;
-    border: 2px solid hsla(0, 0%, 20%, 50%);
+    border: 2px solid var(--border);
     background: transparent;
     padding: 8px 16px;
     color: var(--text-color);
