@@ -11,7 +11,7 @@ import {
     TextTIcon,
     UploadSimpleIcon,
 } from '@phosphor-icons/react';
-import PickableField from '@/components/UI/Form/Creation/PickableField.tsx';
+import PickableField from '@/components/UI/Form/Creation/PickableField/PickableField.tsx';
 import styles from './pickable-fields.module.css';
 
 export type Field = {

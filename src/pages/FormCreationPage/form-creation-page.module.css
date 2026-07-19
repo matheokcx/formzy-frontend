@@ -4,24 +4,3 @@
     flex-direction: column;
     overflow: hidden;
 }
-
-.header {
-    background-color: var(--background-light);
-    padding: 12px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header div {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.backButton {
-    background-color: var(--border);
-    border-radius: 10px;
-    color: #000;
-    padding-block: 10px;
-}

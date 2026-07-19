@@ -24,6 +24,7 @@ export type FormField = {
     label: string;
     type: string;
     required: boolean;
+    position: number;
 };
 
 export type Form = {
@@ -34,7 +35,7 @@ export type Form = {
     isPrivate: boolean;
     isClosed: boolean;
     user: User;
-    formTheme: FormTheme;
+    formTheme: FormTheme | null;
     replies?: FormReply[];
     createdAt: string;
     updatedAt: string;

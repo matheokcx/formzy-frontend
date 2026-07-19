@@ -1,4 +1,4 @@
-import type { Field } from '@/components/UI/Form/Creation/PickableFields.tsx';
+import type { Field } from '@/components/UI/Form/Creation/PickableFields/PickableFields.tsx';
 import styles from './pickable-field.module.css';
 
 type PickableFieldProps = {

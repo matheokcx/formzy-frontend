@@ -3,8 +3,8 @@ import FormCard from '@/components/UI/Form/FormCard/FormCard.tsx';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth.ts';
 import styles from './form-list.module.css';
-import { AuthService } from '@/services/formService.ts';
 import { useTranslation } from 'react-i18next';
+import { FormService } from '@/services/formService.ts';
 
 type FormListProps = {
     statusFilter: FormStatus;
@@ -19,7 +19,7 @@ const FormList = ({ statusFilter }: FormListProps) => {
     useEffect(() => {
         const func = async () => {
             if (user) {
-                const result: Form[] = await AuthService.getUserForms(user.id);
+                const result: Form[] = await FormService.getUserForms(user.id);
                 setForms(result);
             }
         };
@@ -29,10 +29,8 @@ const FormList = ({ statusFilter }: FormListProps) => {
     const filteredForms = useMemo(() => {
         switch (statusFilter) {
             case 'open':
-                // ouvert : ni privé, ni fermé
                 return forms.filter((form) => !form.isPrivate && !form.isClosed);
             case 'closed':
-                // fermé : pas privé mais fermé
                 return forms.filter((form) => !form.isPrivate && form.isClosed);
             default:
                 return forms;
