@@ -8,32 +8,15 @@ import {
 } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { FormService } from '@/services/formService.ts';
-import type { FormField } from '@/types';
-import { useState } from 'react';
 
-type FormCreationHeaderProps = {
-    description: string;
-    isPrivate: boolean;
-    fields: FormField[];
-};
+interface FormCreationHeaderProps {
+    name: string;
+    handleSave: () => void;
+}
 
-const FormCreationHeader = ({ description, isPrivate, fields }: FormCreationHeaderProps) => {
+const FormCreationHeader = ({ name, handleSave }: FormCreationHeaderProps) => {
     const { t } = useTranslation();
     const navigate = useNavigate();
-
-    const [name, setName] = useState<string>('');
-
-    const saveFormInformation = async (): Promise<void> => {
-        console.log(fields);
-        await FormService.createForm({
-            name: name,
-            description: description,
-            isPrivate: isPrivate,
-            //fields: fields,
-            fields: {} as never,
-        }).then(() => navigate('/forms'));
-    };
 
     return (
         <div className={styles.header}>
@@ -41,13 +24,7 @@ const FormCreationHeader = ({ description, isPrivate, fields }: FormCreationHead
                 <button onClick={() => navigate('/forms')} className={styles.backButton}>
                     <ArrowLeftIcon size={24} />
                 </button>
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Nom du formulaire"
-                    className={styles.nameInput}
-                />
+                <h2>{name}</h2>
             </div>
             <div>
                 <button className={styles.moveActionButton}>
@@ -60,7 +37,7 @@ const FormCreationHeader = ({ description, isPrivate, fields }: FormCreationHead
                     <EyeIcon size={16} />
                     {t('glimpse')}
                 </button>
-                <button onClick={saveFormInformation} className={styles.saveButton}>
+                <button onClick={handleSave} className={styles.saveButton}>
                     <FloppyDiskIcon size={16} />
                     {t('save')}
                 </button>

@@ -40,7 +40,11 @@
             "number": "Number",
             "email": "Email",
             "date": "Date",
-            "upload": "File upload"
+            "upload": "File upload",
+            "textArea": "Text area",
+            "text": "Text",
+            "select": "Selector",
+            "file": "File"
         },
         "add_field": "Add a field",
         "drop_field_here": "Drag and drop a field here"

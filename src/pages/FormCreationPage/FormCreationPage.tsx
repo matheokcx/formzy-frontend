@@ -1,23 +1,45 @@
-import PickableFields from '@/components/UI/Form/Creation/PickableFields/PickableFields.tsx';
+import DraggableFieldsList from '@/components/UI/Form/Creation/DraggableFieldsList/DraggableFieldsList.tsx';
 import styles from './form-creation-page.module.css';
 import FormCreationHeader from '@/components/UI/Form/Creation/FormCreationHeader/FormCreationHeader.tsx';
 import { useState } from 'react';
 import type { FormField } from '@/types';
 import FormEditionSection from '@/components/UI/Form/Creation/FormEditionSection/FormEditionSection.tsx';
+import { FormService } from '@/services/formService.ts';
+import { useNavigate } from 'react-router';
 
 const FormCreationPage = () => {
-    const [description, setDescription] = useState<string>('');
+    const navigate = useNavigate();
+
+    const [name, setName] = useState<string>('Nom du formulaire');
+    const [description, setDescription] = useState<string>('Description');
     const [isPrivate, setIsPrivate] = useState<boolean>(false);
     const [fields, setFields] = useState<FormField[]>([]);
 
-    console.log(setDescription, setIsPrivate);
+    const saveFormInformation = async (): Promise<void> => {
+        await FormService.createForm({
+            name: name,
+            description: description,
+            isPrivate: isPrivate,
+            //fields: fields,
+            fields: {} as never,
+        }).then(() => navigate('/forms'));
+    };
 
     return (
         <main className={styles.page}>
-            <FormCreationHeader description={description} fields={fields} isPrivate={isPrivate} />
+            <FormCreationHeader name={name} handleSave={saveFormInformation} />
             <div className={styles.content}>
-                <PickableFields />
-                <FormEditionSection fields={fields} setFields={setFields} />
+                <DraggableFieldsList />
+                <FormEditionSection
+                    name={name}
+                    setName={setName}
+                    description={description}
+                    setDescription={setDescription}
+                    fields={fields}
+                    setFields={setFields}
+                    isPrivate={isPrivate}
+                    setIsPrivate={setIsPrivate}
+                />
             </div>
         </main>
     );

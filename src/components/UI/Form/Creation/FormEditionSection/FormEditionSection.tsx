@@ -2,16 +2,31 @@ import styles from './form-edition-section.module.css';
 import type { FormField } from '@/types';
 import { HandGrabbingIcon } from '@phosphor-icons/react';
 import { type DragEvent, useState } from 'react';
-import { PICKABLE_FIELD_FORMAT } from '@/components/UI/Form/Creation/PickableField/PickableField.tsx';
+import { PICKABLE_FIELD_FORMAT } from '@/components/UI/Form/Creation/DraggableField/DraggableField.tsx';
 import { useTranslation } from 'react-i18next';
-import Field from '@/components/UI/Form/Creation/FormField/Field.tsx';
+import RenderField from '@/components/UI/Form/Creation/RenderField/RenderField.tsx';
 
 interface FormEditionSectionProps {
+    name: string;
+    setName: (name: string) => void;
+    description: string;
+    setDescription: (description: string) => void;
     fields: FormField[];
     setFields: (newValue: FormField[]) => void;
+    isPrivate: boolean;
+    setIsPrivate: (isPrivate: boolean) => void;
 }
 
-const FormEditionSection = ({ fields, setFields }: FormEditionSectionProps) => {
+const FormEditionSection = ({
+    name,
+    setName,
+    description,
+    setDescription,
+    fields,
+    setFields,
+    isPrivate,
+    setIsPrivate,
+}: FormEditionSectionProps) => {
     const { t } = useTranslation();
 
     const [isDragOver, setIsDragOver] = useState<boolean>(false);
@@ -58,6 +73,11 @@ const FormEditionSection = ({ fields, setFields }: FormEditionSectionProps) => {
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
         >
+            <div className={styles.formInformation}>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+            </div>
+
             {fields.length === 0 ? (
                 <div className={styles.emptyZone}>
                     <HandGrabbingIcon size={32} />
@@ -65,7 +85,7 @@ const FormEditionSection = ({ fields, setFields }: FormEditionSectionProps) => {
                 </div>
             ) : (
                 fields.map((field: FormField) => (
-                    <Field key={field.position} field={field} removeField={removeField} />
+                    <RenderField key={field.position} field={field} removeField={removeField} />
                 ))
             )}
         </div>

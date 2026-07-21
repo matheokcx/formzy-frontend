@@ -1,0 +1,40 @@
+.fieldCard {
+    width: 100%;
+    background-color: var(--background-light);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.typeChip {
+    background-color: var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+}
+
+.removeFieldButton {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    transition: 1.5s;
+}
+
+.removeFieldButton:hover {
+    color: #dc4747;
+    background-color: var(--background);
+}
