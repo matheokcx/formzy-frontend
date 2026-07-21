@@ -12,14 +12,13 @@ const FormCreationPage = () => {
 
     const [name, setName] = useState<string>('Nom du formulaire');
     const [description, setDescription] = useState<string>('Description');
-    const [isPrivate, setIsPrivate] = useState<boolean>(false);
     const [fields, setFields] = useState<FormField[]>([]);
 
     const saveFormInformation = async (): Promise<void> => {
         await FormService.createForm({
             name: name,
             description: description,
-            isPrivate: isPrivate,
+            isPrivate: false,
             //fields: fields,
             fields: {} as never,
         }).then(() => navigate('/forms'));
@@ -37,8 +36,6 @@ const FormCreationPage = () => {
                     setDescription={setDescription}
                     fields={fields}
                     setFields={setFields}
-                    isPrivate={isPrivate}
-                    setIsPrivate={setIsPrivate}
                 />
             </div>
         </main>
