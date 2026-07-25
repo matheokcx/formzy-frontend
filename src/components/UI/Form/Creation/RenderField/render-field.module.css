@@ -54,3 +54,16 @@
     color: #dc4747;
     background-color: var(--background);
 }
+
+@media (max-width: 768px) {
+    .fieldCard {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .fieldCard input:not([type='checkbox']),
+    .fieldCard select,
+    .fieldCard textarea {
+        width: 100%;
+    }
+}

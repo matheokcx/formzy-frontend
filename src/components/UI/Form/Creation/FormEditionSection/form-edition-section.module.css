@@ -80,3 +80,25 @@ textarea {
     align-items: center;
     gap: 10px;
 }
+
+@media (max-width: 768px) {
+    .dropZone {
+        gap: 14px;
+        margin: 12px;
+        padding: 12px;
+        overflow: visible;
+        min-height: 240px;
+    }
+
+    .emptyZone {
+        flex: 1;
+    }
+
+    .formInformation {
+        padding: 16px;
+    }
+
+    .formInformation input {
+        font-size: 18px;
+    }
+}

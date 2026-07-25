@@ -32,6 +32,8 @@ const FormList = ({ statusFilter }: FormListProps) => {
                 return forms.filter((form) => !form.isPrivate && !form.isClosed);
             case 'closed':
                 return forms.filter((form) => !form.isPrivate && form.isClosed);
+            case 'private':
+                return forms.filter((form) => form.isPrivate);
             default:
                 return forms;
         }

@@ -27,3 +27,18 @@
     display: flex;
     gap: 8px;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .actionButtons {
+        gap: 8px;
+    }
+
+    .actionButtons button {
+        padding: 8px 12px;
+    }
+}

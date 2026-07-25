@@ -6,6 +6,9 @@
     gap: 10px;
     border-radius: 10px;
     padding-inline: 12px;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .field:hover {
@@ -14,4 +17,20 @@
 
 .field:active {
     cursor: grabbing;
+}
+
+.ghost {
+    position: fixed;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    box-shadow: 0 4px 10px hsla(0, 0%, 20%, 30%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .field {
+        flex-shrink: 0;
+        touch-action: pan-x;
+    }
 }

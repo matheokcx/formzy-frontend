@@ -49,4 +49,4 @@ export type FormReply = {
     updatedAt: string;
 };
 
-export type FormStatus = 'all' | 'open' | 'closed';
+export type FormStatus = 'all' | 'open' | 'closed' | 'private';

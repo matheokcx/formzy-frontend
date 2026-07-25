@@ -24,3 +24,10 @@
     margin-top: 4px;
     padding: 10px;
 }
+
+@media (max-width: 768px) {
+    .loginForm {
+        gap: 16px;
+        padding: 24px;
+    }
+}

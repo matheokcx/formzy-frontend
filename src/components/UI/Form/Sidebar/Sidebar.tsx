@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { CircleDashedIcon, PlusIcon, TrayIcon, XCircleIcon } from '@phosphor-icons/react';
+import { CircleDashedIcon, LockIcon, PlusIcon, TrayIcon, XCircleIcon } from '@phosphor-icons/react';
 import styles from './sidebar.module.css';
 import { useNavigate } from 'react-router';
 import type { FormStatus } from '@/types';
@@ -54,6 +54,15 @@ const Sidebar = ({ statusFilter, handleFilterChange }: SidebarProps) => {
                     <div>
                         <XCircleIcon size={20} />
                         {t('forms.status.closed')}
+                    </div>
+                </button>
+                <button
+                    onClick={() => handleFilterChange('private')}
+                    style={handleButtonFilterColor('private')}
+                >
+                    <div>
+                        <LockIcon size={20} />
+                        {t('forms.status.private')}
                     </div>
                 </button>
             </div>
