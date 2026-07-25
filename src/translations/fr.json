@@ -20,5 +20,48 @@
     "light": "Clair",
     "dark": "Sombre",
     "createdAt": "Crée le",
-    "updatedAt": "Mis à jour le"
+    "updatedAt": "Mis à jour le",
+    "forms": {
+        "formWithCount_one": "{{count}} formulaire",
+        "formWithCount_other": "{{count}} formulaires",
+        "your_forms": "Mes formulaires",
+        "status": {
+            "private": "Privé",
+            "closed": "Fermé",
+            "open": "Ouvert"
+        },
+        "new_form": "Nouveau formulaire",
+        "fields": {
+            "short_text": "Texte court",
+            "long_text": "Texte long",
+            "multiple_choice": "Choix multiple",
+            "checkbox": "Case à cocher",
+            "list": "Liste déroulante",
+            "number": "Nombre",
+            "email": "Mail",
+            "date": "Date",
+            "upload": "Téléversement",
+            "textArea": "Zone de texte",
+            "text": "Texte",
+            "select": "Sélecteur",
+            "file": "Fichier"
+        },
+        "add_field": "Ajouter un champ",
+        "drop_field_here": "Glissez-déposez un champ ici",
+        "field_settings": "Paramètres",
+        "field_label": "Libellé",
+        "field_type": "Type de champ",
+        "close": "Fermer"
+    },
+    "questionWithCount_one": "{{count}} question",
+    "questionWithCount_other": "{{count}} questions",
+    "replyWithCount_one": "{{count}} réponse",
+    "replyWithCount_other": "{{count}} réponses",
+    "search": "Rechercher",
+    "filters": "Filtres",
+    "all": "Tous",
+    "glimpse": "Aperçu",
+    "save": "Enregistrer",
+    "required": "Obligatoire",
+    "private": "Privé"
 }

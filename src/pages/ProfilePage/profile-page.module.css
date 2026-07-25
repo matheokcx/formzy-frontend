@@ -125,3 +125,14 @@
         background-position: -200% 0;
     }
 }
+
+@media (max-width: 768px) {
+    .profileSection {
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .infoRow {
+        gap: 12px;
+    }
+}

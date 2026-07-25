@@ -1,0 +1,19 @@
+.page {
+    padding: 0;
+    display: flex;
+}
+
+.listSection {
+    padding: 20px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .listSection {
+        padding: 16px;
+    }
+}

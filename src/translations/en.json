@@ -20,5 +20,48 @@
     "light": "Light",
     "dark": "Dark",
     "createdAt": "Created at",
-    "updatedAt": "Updated at"
+    "updatedAt": "Updated at",
+    "forms": {
+        "formWithCount_one": "{{count}} form",
+        "formWithCount_other": "{{count}} forms",
+        "your_forms": "My forms",
+        "status": {
+            "private": "Private",
+            "closed": "Closed",
+            "open": "Open"
+        },
+        "new_form": "New form",
+        "fields": {
+            "short_text": "Short text",
+            "long_text": "Long text",
+            "multiple_choice": "Multiple choice",
+            "checkbox": "Checkbox",
+            "list": "List",
+            "number": "Number",
+            "email": "Email",
+            "date": "Date",
+            "upload": "File upload",
+            "textArea": "Text area",
+            "text": "Text",
+            "select": "Selector",
+            "file": "File"
+        },
+        "add_field": "Add a field",
+        "drop_field_here": "Drag and drop a field here",
+        "field_settings": "Settings",
+        "field_label": "Label",
+        "field_type": "Type of field",
+        "close": "Close"
+    },
+    "questionWithCount_one": "{{count}} question",
+    "questionWithCount_other": "{{count}} questions",
+    "replyWithCount_one": "{{count}} reply",
+    "replyWithCount_other": "{{count}} replies",
+    "search": "Search",
+    "filters": "Filters",
+    "all": "All",
+    "glimpse": "Glimpse",
+    "save": "Save",
+    "required": "Required",
+    "private": "Private"
 }

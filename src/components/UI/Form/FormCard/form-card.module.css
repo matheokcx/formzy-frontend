@@ -1,0 +1,34 @@
+.card {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background-color: var(--background-light);
+    box-shadow: 0 4px 10px hsla(0, 0%, 20%, 10%);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statusChip {
+    padding: 6px 12px;
+    color: hsl(0, 0%, 100%);
+    border-radius: 999px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

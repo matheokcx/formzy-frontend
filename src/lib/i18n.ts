@@ -15,9 +15,9 @@ i18n.use(HttpBackend)
         interpolation: {
             escapeValue: false,
         },
-        backend: {
-            loadPath: 'src/translations/{{lng}}.json',
-            resources: { fr, en },
+        resources: {
+            fr: { translation: fr },
+            en: { translation: en },
         },
         detection: {
             order: ['localStorage', 'navigator', 'htmlTag'],

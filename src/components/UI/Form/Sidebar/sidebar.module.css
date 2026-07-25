@@ -1,0 +1,48 @@
+.sidebar {
+    width: 25%;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 20px;
+}
+
+.sidebar button {
+    width: 100%;
+}
+
+.formStatusButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formStatusButtons button {
+    justify-content: space-between;
+    color: var(--title-color);
+}
+
+.formStatusButtons button > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .formStatusButtons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .formStatusButtons button {
+        flex: 1 1 40%;
+        justify-content: center;
+        padding: 8px 10px;
+    }
+}
