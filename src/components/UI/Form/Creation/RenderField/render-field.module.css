@@ -1,0 +1,69 @@
+.fieldCard {
+    width: 100%;
+    background-color: var(--background-light);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.fieldCard:hover {
+    border-color: var(--text-color);
+}
+
+.fieldCardSelected,
+.fieldCardSelected:hover {
+    border-color: #dc6627;
+}
+
+.fieldCard input[type='checkbox'] {
+    align-self: flex-start;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.typeChip {
+    background-color: var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+}
+
+.removeFieldButton {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    transition: 1.5s;
+}
+
+.removeFieldButton:hover {
+    color: #dc4747;
+    background-color: var(--background);
+}
+
+@media (max-width: 768px) {
+    .fieldCard {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .fieldCard input:not([type='checkbox']),
+    .fieldCard select,
+    .fieldCard textarea {
+        width: 100%;
+    }
+}

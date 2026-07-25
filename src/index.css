@@ -6,7 +6,7 @@
     --background: hsl(0, 0%, 95%);
     --background-light: hsl(0, 0%, 100%);
 
-    --border: hsl(0, 0%, 0%);
+    --border: hsl(0, 0%, 90%);
 
     --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
     --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -67,7 +67,7 @@ h2 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -87,12 +87,13 @@ a {
 }
 
 input,
-select {
+select,
+textarea {
     height: fit-content;
-    border-radius: 14px;
-    border: 2px solid hsl(0, 0%, 20%);
+    border-radius: 12px;
+    border: 2px solid var(--border);
     background: transparent;
-    padding: 8px 16px;
+    padding: 10px 14px;
     color: var(--text-color);
 }
 
@@ -103,7 +104,12 @@ button {
     background: hsl(0, 0%, 20%);
     padding: 8px 16px;
     color: hsl(0, 0%, 100%);
+    font-size: 16px;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 button:disabled {
@@ -130,5 +136,40 @@ hr {
     --background: hsl(0, 0%, 10%);
     --background-light: hsl(0, 0%, 20%);
 
-    --border: hsl(0, 0%, 100%);
+    --border: hsl(0 0% 30%);
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 16px;
+    }
+
+    #root {
+        height: auto;
+        min-height: 100svh;
+        overflow: visible;
+    }
+
+    main {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+        font-size: 16px;
+    }
 }

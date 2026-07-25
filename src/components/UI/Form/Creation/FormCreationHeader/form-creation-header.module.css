@@ -1,0 +1,67 @@
+.header {
+    background-color: var(--background-light);
+    padding: 12px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.backButton {
+    background-color: var(--border);
+    border-radius: 10px;
+    color: var(--title-color);
+    padding-block: 10px;
+}
+
+.glimpseButton {
+    background-color: transparent;
+    border: 2px solid var(--border);
+    color: var(--title-color);
+}
+
+.saveButton {
+    background-color: hsl(0, 0%, 10%);
+}
+
+.nameInput {
+    width: 50%;
+    border: none;
+    border-radius: 10px;
+}
+
+.leftHeader {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .header div {
+        gap: 10px;
+    }
+
+    .header h2 {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .header > div:last-child {
+        width: 100%;
+    }
+
+    .header > div:last-child button {
+        flex: 1;
+    }
+}

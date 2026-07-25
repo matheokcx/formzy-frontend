@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useAuth } from '@/hooks/useAuth.ts';
 import { AuthService } from '@/services/authService.ts';
 import toast from 'react-hot-toast';
@@ -30,6 +30,9 @@ const LoginForm = () => {
             <input type="password" name="password" placeholder={t('password')} required />
 
             <button type="submit">{t('login')}</button>
+            <Link to="/signup" style={{ textAlign: 'center' }}>
+                {t('signup')}
+            </Link>
         </form>
     );
 };

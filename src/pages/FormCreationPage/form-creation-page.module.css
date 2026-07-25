@@ -1,0 +1,22 @@
+.page {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+@media (max-width: 768px) {
+    .page {
+        overflow: visible;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+}

@@ -28,7 +28,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         let cancelled = false;
         AuthService.getProfile()
             .then((response) => {
-                if (!cancelled) setUser(response.data);
+                if (!cancelled) {
+                    setUser(response.data);
+                }
             })
             .catch(() => {
                 if (!cancelled) logout();

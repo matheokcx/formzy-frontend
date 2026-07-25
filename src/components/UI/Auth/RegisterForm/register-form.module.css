@@ -1,4 +1,4 @@
-.loginForm {
+.registerForm {
     width: 100%;
     max-width: 360px;
     display: flex;
@@ -10,17 +10,24 @@
     padding: 32px;
 }
 
-.loginForm h3 {
+.registerForm h3 {
     margin: 0;
     text-align: center;
 }
 
-.loginForm input {
+.registerForm input {
     width: 100%;
 }
 
-.loginForm button {
+.registerForm button {
     width: 100%;
     margin-top: 4px;
     padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .registerForm {
+        gap: 16px;
+        padding: 24px;
+    }
 }

@@ -3,5 +3,42 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 24px 16px;
+    border-bottom: 2px solid var(--border);
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.links h2:hover {
+    cursor: pointer;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 12px;
+}
+
+.actionButtons div {
+    display: flex;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .actionButtons {
+        gap: 8px;
+    }
+
+    .actionButtons button {
+        padding: 8px 12px;
+    }
 }
