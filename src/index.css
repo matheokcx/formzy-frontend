@@ -90,10 +90,10 @@ input,
 select,
 textarea {
     height: fit-content;
-    border-radius: 14px;
+    border-radius: 12px;
     border: 2px solid var(--border);
     background: transparent;
-    padding: 8px 16px;
+    padding: 10px 14px;
     color: var(--text-color);
 }
 

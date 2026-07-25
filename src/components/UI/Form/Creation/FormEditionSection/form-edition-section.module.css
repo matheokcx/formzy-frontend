@@ -69,3 +69,14 @@ textarea {
     border-bottom: 1px solid var(--border);
     border-radius: 0;
 }
+
+.formInformation input {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.isPrivateInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

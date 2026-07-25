@@ -1,11 +1,5 @@
 import styles from './form-creation-header.module.css';
-import {
-    ArrowClockwiseIcon,
-    ArrowCounterClockwiseIcon,
-    ArrowLeftIcon,
-    EyeIcon,
-    FloppyDiskIcon,
-} from '@phosphor-icons/react';
+import { ArrowLeftIcon, EyeIcon, FloppyDiskIcon } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
@@ -27,12 +21,6 @@ const FormCreationHeader = ({ name, handleSave }: FormCreationHeaderProps) => {
                 <h2>{name}</h2>
             </div>
             <div>
-                <button className={styles.moveActionButton}>
-                    <ArrowCounterClockwiseIcon size={20} />
-                </button>
-                <button className={styles.moveActionButton}>
-                    <ArrowClockwiseIcon size={20} />
-                </button>
                 <button className={styles.glimpseButton}>
                     <EyeIcon size={16} />
                     {t('glimpse')}

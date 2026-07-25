@@ -22,7 +22,7 @@ const NavBar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.links}>
-                <h2>Formzy</h2>
+                <h2 onClick={() => navigate('/')}>Formzy</h2>
             </div>
 
             <div className={styles.actionButtons}>

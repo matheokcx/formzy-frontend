@@ -47,7 +47,11 @@
             "file": "Fichier"
         },
         "add_field": "Ajouter un champ",
-        "drop_field_here": "Glissez-déposez un champ ici"
+        "drop_field_here": "Glissez-déposez un champ ici",
+        "field_settings": "Paramètres",
+        "field_label": "Libellé",
+        "field_type": "Type de champ",
+        "close": "Fermer"
     },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",
@@ -57,5 +61,7 @@
     "filters": "Filtres",
     "all": "Tous",
     "glimpse": "Aperçu",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "required": "Obligatoire",
+    "private": "Privé"
 }

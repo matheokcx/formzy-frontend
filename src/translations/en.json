@@ -47,7 +47,11 @@
             "file": "File"
         },
         "add_field": "Add a field",
-        "drop_field_here": "Drag and drop a field here"
+        "drop_field_here": "Drag and drop a field here",
+        "field_settings": "Settings",
+        "field_label": "Label",
+        "field_type": "Type of field",
+        "close": "Close"
     },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",
@@ -57,5 +61,7 @@
     "filters": "Filters",
     "all": "All",
     "glimpse": "Glimpse",
-    "save": "Save"
+    "save": "Save",
+    "required": "Required",
+    "private": "Private"
 }

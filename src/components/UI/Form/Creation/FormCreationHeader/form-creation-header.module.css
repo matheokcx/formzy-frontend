@@ -12,8 +12,7 @@
     gap: 16px;
 }
 
-.backButton,
-.moveActionButton {
+.backButton {
     background-color: var(--border);
     border-radius: 10px;
     color: var(--title-color);

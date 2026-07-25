@@ -8,9 +8,11 @@ import { getPickableFields, type FieldType } from '@/utils.tsx';
 interface FieldProps {
     field: FormField;
     removeField: (position: number) => void;
+    isSelected: boolean;
+    selectField: () => void;
 }
 
-const RenderField = ({ field, removeField }: FieldProps) => {
+const RenderField = ({ field, removeField, isSelected, selectField }: FieldProps) => {
     const { t } = useTranslation();
     const fields: FieldType[] = useMemo((): FieldType[] => getPickableFields(), []);
 
@@ -35,7 +37,10 @@ const RenderField = ({ field, removeField }: FieldProps) => {
     }, []);
 
     return (
-        <div className={styles.fieldCard}>
+        <div
+            className={`${styles.fieldCard} ${isSelected && styles.fieldCardSelected}`}
+            onClick={selectField}
+        >
             <div className={styles.header}>
                 <div className={styles.typeChip}>
                     {fields.find((f: FieldType) => f.type === field.type)?.icon}
@@ -50,7 +55,7 @@ const RenderField = ({ field, removeField }: FieldProps) => {
             </div>
 
             <h2>
-                {field.position}. {field.label}{' '}
+                {field.position + 1}. {field.label}{' '}
                 <span style={{ color: '#dc6627' }}>{field.required && '*'}</span>
             </h2>
             {handleFieldDisplay(field)}

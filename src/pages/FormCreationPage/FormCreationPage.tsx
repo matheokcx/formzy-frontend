@@ -4,6 +4,7 @@ import FormCreationHeader from '@/components/UI/Form/Creation/FormCreationHeader
 import { useState } from 'react';
 import type { FormField } from '@/types';
 import FormEditionSection from '@/components/UI/Form/Creation/FormEditionSection/FormEditionSection.tsx';
+import FieldSettingsSidebar from '@/components/UI/Form/Creation/FieldSettingsSidebar/FieldSettingsSidebar.tsx';
 import { FormService } from '@/services/formService.ts';
 import { useNavigate } from 'react-router';
 
@@ -12,15 +13,31 @@ const FormCreationPage = () => {
 
     const [name, setName] = useState<string>('Nom du formulaire');
     const [description, setDescription] = useState<string>('Description');
-    const [fields, setFields] = useState<FormField[]>([]);
+    const [isPrivate, setIsPrivate] = useState<boolean>(false);
+    const [fields, setFields] = useState<Record<string, FormField>>({});
+    const [selectedFieldPosition, setSelectedFieldPosition] = useState<number | null>(null);
+
+    const selectedField: FormField | null =
+        selectedFieldPosition !== null ? fields[selectedFieldPosition] : null;
+
+    const updateField = (position: string, updates: Partial<FormField>): void => {
+        setFields((previousFields: Record<string, FormField>) => {
+            const currentField: FormField | undefined = previousFields[position];
+
+            if (!currentField) {
+                return previousFields;
+            }
+
+            return { ...previousFields, [position]: { ...currentField, ...updates } };
+        });
+    };
 
     const saveFormInformation = async (): Promise<void> => {
         await FormService.createForm({
             name: name,
             description: description,
-            isPrivate: false,
-            //fields: fields,
-            fields: {} as never,
+            isPrivate: isPrivate,
+            fields: fields,
         }).then(() => navigate('/forms'));
     };
 
@@ -34,9 +51,20 @@ const FormCreationPage = () => {
                     setName={setName}
                     description={description}
                     setDescription={setDescription}
+                    isPrivate={isPrivate}
+                    setIsPrivate={setIsPrivate}
                     fields={fields}
                     setFields={setFields}
+                    selectedFieldPosition={selectedFieldPosition}
+                    setSelectedFieldPosition={setSelectedFieldPosition}
                 />
+                {selectedField && (
+                    <FieldSettingsSidebar
+                        currentField={selectedField}
+                        updateField={updateField}
+                        close={() => setSelectedFieldPosition(null)}
+                    />
+                )}
             </div>
         </main>
     );

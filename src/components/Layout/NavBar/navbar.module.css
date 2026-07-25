@@ -14,6 +14,10 @@
     gap: 24px;
 }
 
+.links h2:hover {
+    cursor: pointer;
+}
+
 .actionButtons {
     display: flex;
     gap: 12px;

@@ -7,6 +7,22 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.fieldCard:hover {
+    border-color: var(--text-color);
+}
+
+.fieldCardSelected,
+.fieldCardSelected:hover {
+    border-color: #dc6627;
+}
+
+.fieldCard input[type='checkbox'] {
+    align-self: flex-start;
+    padding: 0;
 }
 
 .header {

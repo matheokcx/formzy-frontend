@@ -1,0 +1,55 @@
+.sidebar {
+    width: 20%;
+    max-width: 20%;
+    flex-shrink: 0;
+    min-height: 0;
+    background-color: var(--background-light);
+    border: 2px solid var(--border);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeButton {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.closeButton:hover {
+    background-color: var(--background);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field span {
+    font-weight: 500;
+}
+
+.field input,
+.field select {
+    width: 100%;
+}
+
+.checkboxField input {
+    width: auto;
+}
+
+.requiredCheckbox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
