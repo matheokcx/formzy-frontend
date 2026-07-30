@@ -63,5 +63,18 @@
     "glimpse": "Aperçu",
     "save": "Enregistrer",
     "required": "Obligatoire",
-    "private": "Privé"
+    "private": "Privé",
+    "actions": {
+        "visualize": "Visualiser",
+        "edit": "Modifier",
+        "close": "Fermer",
+        "reopen": "Rouvrir",
+        "delete": "Supprimer",
+        "confirm_delete": "Confirmer ?",
+        "menu_label": "Actions du formulaire",
+        "form_closed": "Formulaire fermé",
+        "form_reopened": "Formulaire rouvert",
+        "form_deleted": "Formulaire supprimé",
+        "error": "Une erreur est survenue"
+    }
 }
