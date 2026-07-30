@@ -1,6 +1,6 @@
 import type { Form, FormStatus } from '@/types';
 import FormCard from '@/components/UI/Form/FormCard/FormCard.tsx';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth.ts';
 import styles from './form-list.module.css';
 import { useTranslation } from 'react-i18next';
@@ -26,7 +26,7 @@ const FormList = ({ statusFilter }: FormListProps) => {
         func();
     }, [user]);
 
-    const filteredForms = useMemo(() => {
+    const filteredForms: Form[] = useMemo(() => {
         switch (statusFilter) {
             case 'open':
                 return forms.filter((form) => !form.isPrivate && !form.isClosed);
@@ -39,6 +39,16 @@ const FormList = ({ statusFilter }: FormListProps) => {
         }
     }, [forms, statusFilter]);
 
+    const handleFormUpdated = useCallback((updatedForm: Form): void => {
+        setForms((previousForms) =>
+            previousForms.map((form) => (form.id === updatedForm.id ? updatedForm : form)),
+        );
+    }, []);
+
+    const handleFormDeleted = useCallback((formId: number): void => {
+        setForms((previousForms) => previousForms.filter((form) => form.id !== formId));
+    }, []);
+
     return (
         <div>
             <div>
@@ -48,7 +58,14 @@ const FormList = ({ statusFilter }: FormListProps) => {
 
             <div className={styles.grid}>
                 {filteredForms.length > 0 &&
-                    filteredForms.map((form: Form) => <FormCard key={form.id} form={form} />)}
+                    filteredForms.map((form: Form) => (
+                        <FormCard
+                            key={form.id}
+                            form={form}
+                            onFormUpdated={handleFormUpdated}
+                            onFormDeleted={handleFormDeleted}
+                        />
+                    ))}
             </div>
         </div>
     );
