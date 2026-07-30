@@ -63,5 +63,18 @@
     "glimpse": "Glimpse",
     "save": "Save",
     "required": "Required",
-    "private": "Private"
+    "private": "Private",
+    "actions": {
+        "visualize": "Visualize",
+        "edit": "Edit",
+        "close": "Close",
+        "reopen": "Reopen",
+        "delete": "Delete",
+        "confirm_delete": "Confirm?",
+        "menu_label": "Form actions",
+        "form_closed": "Form closed",
+        "form_reopened": "Form reopened",
+        "form_deleted": "Form deleted",
+        "error": "Something went wrong"
+    }
 }
