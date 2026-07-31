@@ -148,7 +148,7 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
                                 type="button"
                                 role="menuitem"
                                 className={styles.actionButton}
-                                onClick={() => navigate(`/forms/${form.id}/edition`)}
+                                onClick={() => navigate(`/forms/${form.id}/update`)}
                             >
                                 <PencilSimpleIcon size={18} />
                                 {t('actions.edit')}
