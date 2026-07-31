@@ -22,6 +22,11 @@ export class FormService {
         return data.data;
     }
 
+    public static async getForm(formId: number): Promise<Form | null> {
+        const { data } = await apiClient.get(`forms/${formId}`);
+        return data;
+    }
+
     public static async createForm(payload: FormCreationPayload): Promise<Form> {
         const { data: form } = await apiClient.post('/forms', payload);
         return form;

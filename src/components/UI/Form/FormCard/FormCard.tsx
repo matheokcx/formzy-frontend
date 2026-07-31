@@ -54,8 +54,12 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
     }, [form]);
 
     const handleActionsDropdown = useCallback((): void => {
-        setAreActionsVisible(!areActionsVisible);
-    }, [areActionsVisible]);
+        setAreActionsVisible((areVisible) => !areVisible);
+    }, []);
+
+    const handleCloseActions = useCallback((): void => {
+        setAreActionsVisible(false);
+    }, []);
 
     const handleToggleClosing = async (): Promise<void> => {
         try {
@@ -65,7 +69,7 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
 
             onFormUpdated({ ...form, ...updatedForm });
             toast.success(form.isClosed ? t('actions.form_reopened') : t('actions.form_closed'));
-            handleActionsDropdown();
+            handleCloseActions();
         } catch {
             toast.error(t('actions.error'));
         }
@@ -76,21 +80,25 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
             await FormService.deleteForm(form.id);
             onFormDeleted(form.id);
             toast.success(t('actions.form_deleted'));
-            handleActionsDropdown();
+            handleCloseActions();
         } catch {
             toast.error(t('actions.error'));
         }
     };
 
     useEffect(() => {
+        if (!areActionsVisible) {
+            return;
+        }
+
         const handleClickOutside = (event: MouseEvent): void => {
             if (!actionButtonsElement.current?.contains(event.target as Node)) {
-                handleActionsDropdown();
+                handleCloseActions();
             }
         };
         const handleEscape = (event: KeyboardEvent): void => {
             if (event.key === 'Escape') {
-                handleActionsDropdown();
+                handleCloseActions();
             }
         };
 
@@ -101,7 +109,7 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
             document.removeEventListener('mousedown', handleClickOutside);
             document.removeEventListener('keydown', handleEscape);
         };
-    }, [areActionsVisible, handleActionsDropdown]);
+    }, [areActionsVisible, handleCloseActions]);
 
     return (
         <div className={styles.card}>
@@ -140,7 +148,7 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
                                 type="button"
                                 role="menuitem"
                                 className={styles.actionButton}
-                                onClick={() => navigate(`/forms/${form.id}/edition`)}
+                                onClick={() => navigate(`/forms/${form.id}/update`)}
                             >
                                 <PencilSimpleIcon size={18} />
                                 {t('actions.edit')}
