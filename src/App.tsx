@@ -9,7 +9,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage.tsx'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage.tsx'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage.tsx'));
 const FormsPage = lazy(() => import('./pages/FormsPage/FormsPage.tsx'));
-const FormCreationPage = lazy(() => import('./pages/FormCreationPage/FormCreationPage.tsx'));
+const FormEditionPage = lazy(() => import('@/pages/FormEditionPage/FormEditionPage'));
 
 const App = () => {
     return (
@@ -39,7 +39,15 @@ const App = () => {
                     path="/forms/creation"
                     element={
                         <ProtectedRoute>
-                            <FormCreationPage />
+                            <FormEditionPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/forms/:formId/update"
+                    element={
+                        <ProtectedRoute>
+                            <FormEditionPage />
                         </ProtectedRoute>
                     }
                 />

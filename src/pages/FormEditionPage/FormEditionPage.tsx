@@ -1,18 +1,19 @@
 import DraggableFieldsList from '@/components/UI/Form/Creation/DraggableFieldsList/DraggableFieldsList.tsx';
-import styles from './form-creation-page.module.css';
+import styles from './form-edition-page.module.css';
 import FormCreationHeader from '@/components/UI/Form/Creation/FormCreationHeader/FormCreationHeader.tsx';
-import { useState } from 'react';
-import type { FormField } from '@/types';
+import { useEffect, useState } from 'react';
+import type { Form, FormField } from '@/types';
 import FormEditionSection from '@/components/UI/Form/Creation/FormEditionSection/FormEditionSection.tsx';
 import FieldSettingsSidebar from '@/components/UI/Form/Creation/FieldSettingsSidebar/FieldSettingsSidebar.tsx';
 import { FormService } from '@/services/formService.ts';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
-const FormCreationPage = () => {
+const FormEditionPage = () => {
     const navigate = useNavigate();
+    const { formId } = useParams();
 
-    const [name, setName] = useState<string>('Nom du formulaire');
-    const [description, setDescription] = useState<string>('Description');
+    const [name, setName] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
     const [isPrivate, setIsPrivate] = useState<boolean>(false);
     const [fields, setFields] = useState<Record<string, FormField>>({});
     const [selectedFieldPosition, setSelectedFieldPosition] = useState<number | null>(null);
@@ -33,13 +34,39 @@ const FormCreationPage = () => {
     };
 
     const saveFormInformation = async (): Promise<void> => {
-        await FormService.createForm({
-            name: name,
-            description: description,
-            isPrivate: isPrivate,
-            fields: fields,
-        }).then(() => navigate('/forms'));
+        if (formId) {
+            await FormService.updateForm(Number(formId), {
+                name: name,
+                description: description,
+                isPrivate: isPrivate,
+                fields: fields,
+            }).then(() => navigate('/forms'));
+        } else {
+            await FormService.createForm({
+                name: name,
+                description: description,
+                isPrivate: isPrivate,
+                fields: fields,
+            }).then(() => navigate('/forms'));
+        }
     };
+
+    useEffect(() => {
+        const func = async () => {
+            const form: Form | null = await FormService.getForm(Number(formId));
+
+            if (form) {
+                setName(form.name);
+                setDescription(form.description);
+                setIsPrivate(form.isPrivate);
+                setFields(form.fields);
+            }
+        };
+
+        if (formId) {
+            func();
+        }
+    }, [formId]);
 
     return (
         <main className={styles.page}>
@@ -70,4 +97,4 @@ const FormCreationPage = () => {
     );
 };
 
-export default FormCreationPage;
+export default FormEditionPage;
