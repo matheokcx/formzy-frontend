@@ -53,6 +53,15 @@
         "field_type": "Type de champ",
         "close": "Fermer"
     },
+    "form": {
+        "not_found": "Formulaire introuvable",
+        "not_found_description": "Ce formulaire n'existe pas ou n'est plus disponible.",
+        "closed": "Ce formulaire est fermé",
+        "closed_description": "Il n'accepte plus de nouvelles réponses.",
+        "no_fields": "Ce formulaire ne contient aucune question pour le moment.",
+        "select_placeholder": "Sélectionner une option",
+        "submit": "Envoyer"
+    },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",
     "replyWithCount_one": "{{count}} réponse",
