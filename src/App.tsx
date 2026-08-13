@@ -10,6 +10,7 @@ const RegisterPage = lazy(() => import('./pages/RegisterPage.tsx'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage/ProfilePage.tsx'));
 const FormsPage = lazy(() => import('./pages/FormsPage/FormsPage.tsx'));
 const FormEditionPage = lazy(() => import('@/pages/FormEditionPage/FormEditionPage'));
+const FormVisualizePage = lazy(() => import('@/pages/FormVisualizePage/FormVisualizePage'));
 
 const App = () => {
     return (
@@ -51,6 +52,7 @@ const App = () => {
                         </ProtectedRoute>
                     }
                 />
+                <Route path="/forms/:formId" element={<FormVisualizePage />} />
             </Routes>
         </>
     );
