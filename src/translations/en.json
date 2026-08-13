@@ -53,6 +53,15 @@
         "field_type": "Type of field",
         "close": "Close"
     },
+    "form": {
+        "not_found": "Form not found",
+        "not_found_description": "This form does not exist or is no longer available.",
+        "closed": "This form is closed",
+        "closed_description": "It no longer accepts new responses.",
+        "no_fields": "This form has no questions yet.",
+        "select_placeholder": "Select an option",
+        "submit": "Send"
+    },
     "questionWithCount_one": "{{count}} question",
     "questionWithCount_other": "{{count}} questions",
     "replyWithCount_one": "{{count}} reply",
