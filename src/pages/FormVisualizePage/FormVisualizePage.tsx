@@ -37,14 +37,14 @@ const FormVisualizePage = () => {
         console.log(data);
 
         try {
-            const replies = {};
+            const replies: Record<string, string | number> = {};
             for (const f in data) {
                 replies[f[0]] = f[1];
             }
             await FormReplyService.createFormReply(replies, data.get('id') as string);
             toast.error(t("Merci d'avoir répondu au formulaire !!"));
-        } catch (error: any) {
-            toast.error(error.message);
+        } catch (error: unknown) {
+            toast.error(error instanceof Error ? error.message : t('form.error'));
         }
     };
 
