@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
-import { useEffect, useState, type ReactNode, type SubmitEvent } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { Form, FormField } from '@/types';
 import { FormService } from '@/services/formService.ts';
 import toast from 'react-hot-toast';
 import { PaperPlaneTiltIcon, ProhibitIcon, WarningCircleIcon } from '@phosphor-icons/react';
 import styles from './form-visualize-page.module.css';
+import { FormReplyService } from '@/services/formReplyService.ts';
 
 const FormVisualizePage = () => {
     const { t } = useTranslation();
@@ -23,10 +24,8 @@ const FormVisualizePage = () => {
 
         if (field.type === 'select') {
             return (
-                <select id={id} required={field.required} defaultValue="">
-                    <option value="" disabled>
-                        {t('form.select_placeholder')}
-                    </option>
+                <select id={id} required={field.required} defaultValue="1">
+                    <option value="1">{t('form.select_placeholder')}</option>
                 </select>
             );
         }
@@ -34,8 +33,19 @@ const FormVisualizePage = () => {
         return <input id={id} name={id} type={field.type} required={field.required} />;
     };
 
-    const handleSubmit = (event: SubmitEvent<HTMLFormElement>): void => {
-        event.preventDefault();
+    const handleSubmit = async (data: FormData): Promise<void> => {
+        console.log(data);
+
+        try {
+            const replies: Record<string, string | number> = {};
+            for (const f in data) {
+                replies[f[0]] = f[1];
+            }
+            await FormReplyService.createFormReply(replies, data.get('id') as string);
+            toast.error(t("Merci d'avoir répondu au formulaire !!"));
+        } catch (error: unknown) {
+            toast.error(error instanceof Error ? error.message : t('form.error'));
+        }
     };
 
     useEffect(() => {
@@ -89,7 +99,7 @@ const FormVisualizePage = () => {
     return (
         <main className={styles.page}>
             <div className={styles.container}>
-                <form className={styles.form} onSubmit={handleSubmit}>
+                <form className={styles.form} action={handleSubmit}>
                     <header className={styles.header}>
                         <h1 className={styles.title}>{form.name}</h1>
                         {form.description && <p>{form.description}</p>}
@@ -110,6 +120,7 @@ const FormVisualizePage = () => {
                                 {renderField(field)}
                             </div>
                         ))}
+                        <input type="hidden" value={form.id} name="id" />
                     </div>
 
                     <button type="submit" className={styles.submitButton} disabled={!canSubmit}>
