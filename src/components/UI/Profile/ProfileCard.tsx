@@ -16,7 +16,7 @@ const ProfileCard = () => {
     return (
         <section className={styles.profileSection}>
             <header className={styles.header}>
-                <span className={styles.avatar}>{user.initials}</span>
+                <span className={styles.avatar}>{user.fullName.slice(0, 2)}</span>
                 <div className={styles.identity}>
                     <h2>{user.fullName}</h2>
                     <span className={styles.role}>{user.role}</span>
