@@ -20,6 +20,6 @@ export class AuthService {
     }
 
     public static async getProfile(): Promise<AxiosResponse<User>> {
-        return await apiClient.get('/account/profile');
+        return await apiClient.get('/auth/profile');
     }
 }
