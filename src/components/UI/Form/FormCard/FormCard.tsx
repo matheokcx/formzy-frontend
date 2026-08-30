@@ -187,7 +187,7 @@ const FormCard = ({ form, onFormUpdated, onFormDeleted }: FormCardProps) => {
                 </div>
                 <div>
                     <UsersThreeIcon size={24} />
-                    <p>{t('replyWithCount', { count: form?.replies?.length ?? 0 })}</p>
+                    <p>{t('replyWithCount', { count: form?.formReplies?.length ?? 0 })}</p>
                 </div>
             </div>
         </div>
