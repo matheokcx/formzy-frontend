@@ -4,7 +4,6 @@ import type { Form } from '@/types';
 export type FormCreationPayload = {
     name: string;
     description: string;
-    /** JSON string: the API column is jsonb and the DTO is validated with `@IsJSON()`. */
     fields: string;
     isPrivate: boolean;
 };
@@ -12,7 +11,6 @@ export type FormCreationPayload = {
 export type FormUpdatePayload = {
     name?: string;
     description?: string;
-    /** JSON string: the API column is jsonb and the DTO is validated with `@IsJSON()`. */
     fields?: string;
     isPrivate?: boolean;
     isClosed?: boolean;

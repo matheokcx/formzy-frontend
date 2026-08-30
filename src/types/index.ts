@@ -35,7 +35,7 @@ export type Form = {
     isClosed: boolean;
     user: User;
     formTheme: FormTheme | null;
-    replies?: FormReply[];
+    formReplies?: FormReply[];
     createdAt: string;
     updatedAt: string;
 };
@@ -43,7 +43,6 @@ export type Form = {
 export type FormReply = {
     id: number;
     replies: never;
-    formId: number;
     createdAt: string;
     updatedAt: string;
 };

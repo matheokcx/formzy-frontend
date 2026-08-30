@@ -1,19 +1,41 @@
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import type { Form, FormField } from '@/types';
 import { FormService } from '@/services/formService.ts';
 import toast from 'react-hot-toast';
 import { PaperPlaneTiltIcon, ProhibitIcon, WarningCircleIcon } from '@phosphor-icons/react';
 import styles from './form-visualize-page.module.css';
 import { FormReplyService } from '@/services/formReplyService.ts';
+import { AxiosError } from 'axios';
 
 const FormVisualizePage = () => {
     const { t } = useTranslation();
     const { formId } = useParams();
+    const navigate = useNavigate();
 
     const [form, setForm] = useState<Form | null>(null);
     const canSubmit: boolean = form !== null;
+
+    const parseFields = (fields: unknown): Record<string, FormField> => {
+        if (typeof fields !== 'string') {
+            return (fields ?? {}) as Record<string, FormField>;
+        }
+
+        try {
+            return JSON.parse(fields) as Record<string, FormField>;
+        } catch {
+            return {};
+        }
+    };
+
+    const fields: FormField[] = useMemo(
+        (): FormField[] =>
+            Object.values(parseFields(form?.fields)).sort(
+                (a: FormField, b: FormField) => a.position - b.position,
+            ),
+        [form],
+    );
 
     const renderField = (field: FormField): ReactNode => {
         const id: string = `field-${field.position}`;
@@ -34,17 +56,32 @@ const FormVisualizePage = () => {
     };
 
     const handleSubmit = async (data: FormData): Promise<void> => {
-        console.log(data);
-
         try {
-            const replies: Record<string, string | number> = {};
-            for (const f in data) {
-                replies[f[0]] = f[1];
+            const labelsByInputName: Record<string, string> = Object.fromEntries(
+                fields.map((field: FormField) => [`field-${field.position}`, field.label]),
+            );
+            const replies: Record<string, string> = {};
+
+            for (const [name, value] of data.entries()) {
+                const label: string | undefined = labelsByInputName[name];
+
+                if (!label || typeof value !== 'string') {
+                    continue;
+                }
+
+                replies[label] = value;
             }
-            await FormReplyService.createFormReply(replies, data.get('id') as string);
-            toast.error(t("Merci d'avoir répondu au formulaire !!"));
+
+            await FormReplyService.createFormReply({
+                formId: Number(data.get('id')),
+                replies: JSON.stringify(replies),
+            });
+            toast.success(t("Merci d'avoir répondu au formulaire !!"));
+            navigate('/');
         } catch (error: unknown) {
-            toast.error(error instanceof Error ? error.message : t('form.error'));
+            toast.error(
+                error instanceof AxiosError ? error?.response?.data?.message : t('form.error'),
+            );
         }
     };
 
@@ -79,10 +116,6 @@ const FormVisualizePage = () => {
             </main>
         );
     }
-
-    const fields: FormField[] = Object.values(form.fields).sort(
-        (a: FormField, b: FormField) => a.position - b.position,
-    );
 
     if (form.isClosed) {
         return (
