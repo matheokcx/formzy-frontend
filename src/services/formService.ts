@@ -1,17 +1,17 @@
 import { apiClient } from '@/lib/api.ts';
-import type { Form, FormField } from '@/types';
+import type { Form } from '@/types';
 
 export type FormCreationPayload = {
     name: string;
     description: string;
-    fields: Record<string, FormField>;
+    fields: string;
     isPrivate: boolean;
 };
 
 export type FormUpdatePayload = {
     name?: string;
     description?: string;
-    fields?: Record<string, FormField>;
+    fields?: string;
     isPrivate?: boolean;
     isClosed?: boolean;
 };
