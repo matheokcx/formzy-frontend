@@ -39,14 +39,14 @@ const FormEditionPage = () => {
                 name: name,
                 description: description,
                 isPrivate: isPrivate,
-                fields: fields,
+                fields: JSON.stringify(fields),
             }).then(() => navigate('/forms'));
         } else {
             await FormService.createForm({
                 name: name,
                 description: description,
                 isPrivate: isPrivate,
-                fields: fields,
+                fields: JSON.stringify(fields),
             }).then(() => navigate('/forms'));
         }
     };
